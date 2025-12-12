@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getOrders, updateOrder, getCakes, addCake, deleteCake, getAddons, updateAddons, getCategories, addCategory, updateCategory, deleteCategory } from '../utils/localStorage';
+import { getOrders, updateOrder } from '../utils/localStorage';
+import Settings from './Settings';
 import '../styles/WorkerDashboard.css';
 
 const WorkerDashboard = () => {
@@ -8,37 +9,9 @@ const WorkerDashboard = () => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [extraCharges, setExtraCharges] = useState(0);
   const [chargeDescription, setChargeDescription] = useState('');
-  const [cakes, setCakes] = useState([]);
-  const [addons, setAddons] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [catName, setCatName] = useState('');
-  const [catDescription, setCatDescription] = useState('');
-  const [catImage, setCatImage] = useState('');
-  const [editingCategory, setEditingCategory] = useState(null);
-  const [cakeFormData, setCakeFormData] = useState({
-    name: '',
-    category: '',
-    description: '',
-    image: '',
-    weights: [{ weight: '', price: '' }]
-  });
-  const [editingCake, setEditingCake] = useState(null);
-  const [collapsedSections, setCollapsedSections] = useState({
-    categories: false,
-    cakes: false,
-    addons: true
-  });
-  const [activeSettingsTab, setActiveSettingsTab] = useState('categories');
-  const [preparationPhotos, setPreparationPhotos] = useState({});
-  const [editingAddon, setEditingAddon] = useState(null);
-  const [editAddonName, setEditAddonName] = useState('');
-  const [editAddonPrice, setEditAddonPrice] = useState('');
 
   useEffect(() => {
     loadOrders();
-    setCakes(getCakes());
-    setAddons(getAddons());
-    setCategories(getCategories());
   }, [activeTab]);
 
   const loadOrders = () => {

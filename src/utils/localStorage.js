@@ -112,7 +112,7 @@ export const initializeDefaultData = () => {
       },
       {
         id: 7,
-        name: "Kids Cartoon Special",
+        name: "KidsSpecial",
         category: "kids",
         image: "https://via.placeholder.com/300x300?text=Kids+Cake",
         basePrice: 1200,
@@ -148,14 +148,11 @@ export const initializeDefaultData = () => {
 
   if (!localStorage.getItem(storageKeys.ADDONS)) {
     const defaultAddons = [
-      { id: 1, name: "Icing Design", price: 200, type: "decoration" },
-      { id: 2, name: "Chocolate Syrup", price: 100, type: "topping" },
-      { id: 3, name: "Extra Toppings", price: 150, type: "topping" },
+
       { id: 4, name: "Ribbon Decoration", price: 80, type: "decoration" },
       { id: 5, name: "Fresh Flowers", price: 300, type: "decoration" },
       { id: 6, name: "Custom Message", price: 50, type: "message" },
-      { id: 7, name: "Photo Print Top", price: 250, type: "photo" },
-      { id: 8, name: "Candle Pack", price: 100, type: "accessory" }
+
     ];
     localStorage.setItem(storageKeys.ADDONS, JSON.stringify(defaultAddons));
   }
